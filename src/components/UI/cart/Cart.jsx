@@ -43,7 +43,7 @@ const Cart = () => {
             <div className="cart-bottom d-flex align-items-center justify-content-center">
                 {/* <h6>Subtotal amount: <span>${}</span></h6> */}
                 <button>
-                    <Link to='checkout'>
+                    <Link to='cart'>
                         Checkout
                     </Link>
                 </button>
