@@ -1,0 +1,27 @@
+.paginatorBtns {
+    width: 80%;
+    height: 40px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 0.5rem;
+    margin-top: 30px;
+}
+
+.paginatorBtns a {
+    background-color: #212245;
+    color: #fff !important;
+    padding: 5px 13px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    margin: 5px;
+    transition: 0.2s;
+}
+
+.paginatorBtns a:hover {
+    background-color: #df2020;
+}

@@ -1,0 +1,29 @@
+.category-item {
+    background: #fde4e4;
+    padding: 30px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.category-item:hover {
+    background-color: rgba(73, 73, 218, 0.699);
+    transform: translateY(-15px);
+    color: #fde4e4;
+}
+
+@media only screen and (max-width: 768px) {
+
+    .category-item {
+        padding: 20px 15px;
+    }
+
+    .category-img img {
+        height: 40px;
+        width: 40px;
+    }
+
+    .category-item h6 {
+        font-size: 0.8rem;
+    }
+}

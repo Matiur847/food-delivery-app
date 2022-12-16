@@ -1,0 +1,15 @@
+tr {
+    text-align: center;
+}
+
+.deletBtn {
+    cursor: pointer;
+}
+
+.cart-img {
+    width: 80px;
+}
+
+.cart-img img {
+    width: 100%;
+}
