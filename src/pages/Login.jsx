@@ -10,15 +10,12 @@ import "firebase/app"
 import firebaseConfig from '../firebaseConfig';
 import { getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup } from 'firebase/auth'
 import { useState } from 'react';
-import { createContext } from 'react';
 
 
 firebase.initializeApp(firebaseConfig)
 
 
 const Login = () => {
-
-    const UserContext = createContext();
 
     const [user, setUser] = useState();
 
@@ -31,7 +28,7 @@ const Login = () => {
     const handleSignIn = () => {
 
         const auth = getAuth();
-
+        
 
 
         if (!email && !password) {
@@ -82,14 +79,13 @@ const Login = () => {
 
 
     return (
-        <UserContext.Provider value={[user, setUser]}>
-            <Helmet title='Login'>
-                <CommonSection title='Login' />
-                <section>
-                    <Container>
-                        <Row>
-                            <Col lg='6' md='6' sm='12' className='text-center m-auto select'>
-                                {/* <form action="" className="form mb-2">
+    <Helmet title='Login'>
+        <CommonSection title='Login' />
+        <section>
+            <Container>
+                <Row>
+                    <Col lg='6' md='6' sm='12' className='text-center m-auto select'>
+                        {/* <form action="" className="form mb-2">
                             <div className="form-group">
                                 <input onChange={(e) => setEmail(e)} type="email" placeholder='Email' />
 
@@ -107,27 +103,25 @@ const Login = () => {
                         </form>
                         <Link to='/registration'><span className='already'>Already have an account?</span> Create an account</Link> */}
 
-                                <div className="login-container form mb-0 mt-0">
-                                    <div className="login-form">
-                                        <div className="form-group">
-                                            <input type="email" onChange={(e) => setEmail(e.target.value)} placeholder='Email or user ID' /></div> <br />
-                                        <div className="form-group">
-                                            <input type="password" onChange={(e) => setPassword(e.target.value)} placeholder='Enter your password' />
-                                            <p className='error'>{error}</p>
-                                        </div> <br />
-                                    </div>
-                                    <Link to=''>
-                                        <button onClick={handleSignIn} className='addToCartBtn'>Login</button>
-                                    </Link>
-                                </div>
-                                <Link to='/registration'><span className='already'>Don't have an account?</span> Registration!</Link>
-                            </Col>
-                        </Row>
-                    </Container>
-                </section>
-            </Helmet>
-        </UserContext.Provider>
-    )
+                        <div className="login-container form mb-0 mt-0">
+                            <div className="login-form">
+                                <div className="form-group">
+                                    <input type="email" onChange={(e) => setEmail(e.target.value)} placeholder='Email or user ID' /></div> <br />
+                                <div className="form-group">
+                                    <input type="password" onChange={(e) => setPassword(e.target.value)} placeholder='Enter your password' />
+                                    <p className='error'>{error}</p>
+                                </div> <br />
+                            </div>
+                            <Link to=''>
+                                <button onClick={handleSignIn} className='addToCartBtn'>Login</button>
+                            </Link>
+                        </div>
+                        <Link to='/registration'><span className='already'>Don't have an account?</span> Registration!</Link>
+                    </Col>
+                </Row>
+            </Container>
+        </section>
+    </Helmet>)
 };
 
 export default Login;
