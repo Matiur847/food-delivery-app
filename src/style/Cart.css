@@ -13,3 +13,17 @@ tr {
 .cart-img img {
     width: 100%;
 }
+
+.place-order {
+    /* background-color: blue; */
+    background: #f3efef;
+    border-radius: 5px;
+    /* border: 1px solid gray; */
+    padding: 10px 30px;
+    display: block;
+    width: fit-content;
+}
+
+.price {
+    padding: 20px;
+}

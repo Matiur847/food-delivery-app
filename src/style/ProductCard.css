@@ -39,6 +39,13 @@
     font-size: 0.9rem;
 }
 
+@media only screen and (max-width: 1199px) {
+    .addToCartBtn {
+        padding: 7px 15px;
+        font-size: 0.8rem
+    }
+}
+
 @media only screen and (max-width: 992px) {
     .addToCartBtn {
         padding: 5px 15px;
@@ -54,8 +61,9 @@
     }
 }
 
-@media only screen and (max-width: 375px) {
+@media only screen and (max-width: 392px) {
     .addToCartBtn {
+        padding: 5px 12px;
         font-size: 0.5rem;
     }
 }

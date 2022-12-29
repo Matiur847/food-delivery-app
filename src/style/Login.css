@@ -5,3 +5,25 @@
 a {
     text-decoration: none;
 }
+
+.error {
+    text-align: start;
+}
+
+/* .login-container {
+    background-color: #dfe4e4;
+    padding: 20px;
+}
+
+.login-container button {
+    margin-top: 0px;
+}
+
+.login-form {
+    width: 50%;
+    margin: 0 auto;
+}
+
+.login-form input {
+    width: 100%;
+} */

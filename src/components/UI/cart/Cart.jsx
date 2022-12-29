@@ -1,10 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { ListGroup } from 'reactstrap';
 import CartItem from './CartItem';
 import '../../../style/shoppingCart.css'
 import { useDispatch, useSelector } from 'react-redux';
 import { cartUiActions } from '../../../store/shoppingCart/cartUiSlice';
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
 
 const Cart = () => {
 
@@ -16,6 +17,24 @@ const Cart = () => {
     const toggleCart = () => {
         dispatch(cartUiActions.toggle())
     }
+
+
+    // const navigate = useNavigate();
+    // const auth = getAuth();
+
+    // onAuthStateChanged(auth, (user) => {
+    //     if (user) {
+    //         // User is signed in, see docs for a list of available properties
+    //         // https://firebase.google.com/docs/reference/js/firebase.User
+    //         // const uid = user.uid;
+    //         // ...
+    //         console.log(auth.currentUser.email)
+    //     } else {
+    //         // User is signed out
+    //         // ...
+    //         navigate('/login')
+    //     }
+    // });
 
 
 
@@ -40,8 +59,8 @@ const Cart = () => {
                 }
 
             </div>
-            <div className="cart-bottom d-flex align-items-center justify-content-center">
-                {/* <h6>Subtotal amount: <span>${}</span></h6> */}
+            <div className="cart-bottom d-flex align-items-center justify-content-between">
+                <h6>Subtotal amount: <span>${inTotal}</span></h6>
                 <button>
                     <Link to='cart'>
                         Checkout

@@ -8,6 +8,8 @@ import CheckOut from '../pages/CheckOut'
 import Contact from '../pages/Contact'
 import Login from '../pages/Login'
 import Registration from '../pages/Registration'
+import PlaceOrder from '../components/UI/place-order/PlaceOrder';
+import Order from '../components/UI/order/Order';
 
 const Routers = () => {
     return <Routes>
@@ -20,6 +22,8 @@ const Routers = () => {
         <Route path='/contact' element={<Contact />} />
         <Route path='/login' element={<Login />} />
         <Route path='/registration' element={<Registration />} />
+        <Route path='/place-order' element={<PlaceOrder />} />
+        <Route path='/confirm-order' element={<Order />} />
     </Routes>
 };
 

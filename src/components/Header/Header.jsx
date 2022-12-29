@@ -1,10 +1,12 @@
 import React, { useRef, useEffect } from 'react';
-import { Link, NavLink } from 'react-router-dom';
+import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { Container } from 'reactstrap';
 import logo from '../../assets/images/res-logo.png';
 import './Header.css'
 import { useSelector, useDispatch } from 'react-redux';
 import { cartUiActions } from '../../store/shoppingCart/cartUiSlice';
+
+import { getAuth, signOut } from 'firebase/auth'
 
 
 const Header = () => {
@@ -36,6 +38,30 @@ const Header = () => {
 
     const toggleCart = () => {
         dispatch(cartUiActions.toggle())
+    }
+
+    const navigate = useNavigate();
+
+    const auth = getAuth();
+    
+    // const handleSignOut = () => {
+    //     signOut(auth)
+    //         .then(() => {
+    //             navigate('/login')
+    //         })
+    //         .catch((error) => {
+    //             console.log(error.code)
+    //         })
+    // }
+
+    const handleSignOut = () => {
+        signOut(auth)
+        .then(() => {
+            navigate('/login')
+        })
+        .catch((error) => {
+            console.log(error.code)
+        })
     }
 
     return (
@@ -73,6 +99,14 @@ const Header = () => {
                         <span className="mobile-menu" onClick={toggleMenu}>
                             <i className="ri-menu-line"></i>
                         </span>
+                        <span>
+                            <Link>
+                                <button onClick={handleSignOut} className='logOut addToCarBtn'>Log out</button>
+                            </Link>
+                        </span>
+                        {/* <Link>
+                            <button>Log out</button>
+                        </Link> */}
                     </div>
 
                 </div>

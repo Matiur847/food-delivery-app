@@ -5,12 +5,25 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Col, Container, Row } from 'reactstrap';
 import '../style/Cart.css'
 import { cartActions } from '../store/shoppingCart/cartSlice';
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Cart = () => {
     const cartItem = useSelector(state => state.cart.cartItem)
 
     const totalAmount = useSelector(state => state.cart.totalAmount)
 
+    const navigate = useNavigate();
+    const auth = getAuth();
+    
+    onAuthStateChanged(auth, (user) =>{
+        if(user) {
+            console.log(auth.currentUser.email)
+        }
+        else {
+            navigate('/login')
+        }
+    })
     return <Helmet title='Cart'>
         <CommonSection title='Your Cart' />
         <section>
@@ -19,28 +32,38 @@ const Cart = () => {
                     <Col lg='12'>
                         {
                             cartItem.length === 0 ? <h5 className='text-center'>Your Cart is Empty</h5> :
-                                <table className='table table-bordered'>
-                                    <thead>
-                                        <tr>
-                                            <th className='undef'>Image</th>
-                                            <th className='undef'>Product Title</th>
-                                            <th className='undef'>Price</th>
-                                            <th className='undef'>Quantity</th>
-                                            <th className='undef'>Delete</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        {
-                                            cartItem.map(item => (
-                                                <Tr item={item} key={item.id} />
-                                            ))
-                                        }
-                                    </tbody>
-                                </table>
+                                <div>
+                                    <table className='table table-bordered'>
+                                        <thead>
+                                            <tr>
+                                                <th className='undef'>Image</th>
+                                                <th className='undef'>Product Title</th>
+                                                <th className='undef'>Price</th>
+                                                <th className='undef'>Quantity</th>
+                                                <th className='undef'>Delete</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {
+                                                cartItem.map(item => (
+                                                    <Tr item={item} key={item.id} />
+                                                ))
+                                            }
+                                        </tbody>
+                                    </table>
+                                    <div className='place-order d-flex align-items-center'>
+                                        <div className="price">
+                                            <h6>Subtotal: <span>${totalAmount}</span></h6>
+                                        </div>
+                                        <div className="orderBtn">
+                                            <Link to='/place-order'>
+                                                <button className='addToCartBtn'>Place Order</button>
+                                            </Link>
+                                        </div>
+                                    </div>
+                                </div>
                         }
-                        <div>
-                            {/* <h6>Subtotal: <span>${}</span></h6> */}
-                        </div>
+                        
                     </Col>
                 </Row>
             </Container>

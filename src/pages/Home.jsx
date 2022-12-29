@@ -3,7 +3,7 @@ import { Col, Container, ListGroup, ListGroupItem, Row } from 'reactstrap';
 import Helmet from '../components/Helmet/Helmet';
 import heroPng from '../assets/images/hero.png'
 import '../style/Home.css'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import Categori from '../components/UI/categori/Categori';
 
 import featureImg1 from '../assets/images/service-01.png'
@@ -27,6 +27,7 @@ import network from '../assets/images/network.png'
 import { useState } from 'react';
 import { useEffect } from 'react';
 import TestimonialSlider from '../components/UI/slider/TestimonialSlider';
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
 
 const featureData = [
     {
@@ -50,6 +51,8 @@ const featureData = [
 
 
 const Home = () => {
+
+    const auth = getAuth();
 
     const [category, setCategory] = useState('ALL')
     const [allProduct, setAllProduct] = useState(fakeData)
@@ -89,7 +92,26 @@ const Home = () => {
         }
     }, [category])
 
-    return <Helmet title='Home'>
+    const navigate = useNavigate();
+
+    onAuthStateChanged(auth, (user) => {
+        if (user) {
+            // User is signed in, see docs for a list of available properties
+            // https://firebase.google.com/docs/reference/js/firebase.User
+            // const uid = user.uid;
+            // ...
+            console.log(auth.currentUser.email)
+        }
+        else {
+            // User is signed out
+            // ...
+            navigate('/login')
+        }
+    });
+
+    return <Helmet title='Home'>{
+        // console.log(auth.currentUser.)
+    }
         <section>
             <Container>
                 <Row>

@@ -2,6 +2,15 @@ a i {
     text-decoration: none;
 }
 
+/* .addToCartBtn {
+    border: none;
+    color: #fff;
+    background: #df2020;
+    padding: 7px 25px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+} */
+
 .header {
     width: 100%;
     height: 100px;
@@ -139,7 +148,7 @@ a i {
     .header {
         width: 100%;
         height: auto;
-        line-height: 50px;  
+        line-height: 50px;
     }
 
     .logo h5 {

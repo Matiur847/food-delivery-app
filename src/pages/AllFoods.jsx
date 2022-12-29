@@ -10,6 +10,8 @@ import '../style/AllFoods.css'
 import { useState } from 'react';
 import ReactPaginate from 'react-paginate';
 import '../style/Paginator.css'
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
+import { useNavigate } from 'react-router-dom';
 
 
 const AllFoods = () => {
@@ -26,6 +28,24 @@ const AllFoods = () => {
     const changePage = ({selected}) => {
         setPageNumber(selected)
     }
+
+
+    const navigate = useNavigate();
+    const auth = getAuth();
+
+    onAuthStateChanged(auth, (user) => {
+        if (user) {
+            // User is signed in, see docs for a list of available properties
+            // https://firebase.google.com/docs/reference/js/firebase.User
+            // const uid = user.uid;
+            // ...
+            console.log(auth.currentUser.email)
+        } else {
+            // User is signed out
+            // ...
+            navigate('/login')
+        }
+    });
 
 
     return (

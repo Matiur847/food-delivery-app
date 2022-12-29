@@ -1,0 +1,26 @@
+.user-info-container {
+    background-color: #fde4e4;
+    padding: 50px;
+}
+
+.customer-info {
+    text-align: center;
+}
+
+.contact {
+    margin-top: 40px;
+}
+
+p {
+    font-weight: 600;
+    color: deeppink;
+}
+
+.info-form {
+    background: #fde4e434;
+    /* width: 60%;
+    margin: auto; */
+    border-radius: 5px;
+    padding: 20px;
+    box-shadow: 5px 5px 10px rgb(128 128 128 / 65%);
+}
