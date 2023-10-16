@@ -123,7 +123,7 @@ const Home = () => {
                             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe vero et assumenda unde? Quaerat, obcaecati?</p>
 
                             <div className="hero-btn d-flex align-items-center gap-5 mt-4">
-                                <button className='order-btn d-flex align-items-center                     justify-content-between'>Order now <i class="ri-arrow-right-s-line"></i>
+                                <button className='order-btn d-flex align-items-center justify-content-between'>Order now <i class="ri-arrow-right-s-line"></i>
                                 </button>
 
                                 <button className='all-foods-btn'>

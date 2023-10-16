@@ -44,6 +44,7 @@ const Cart = () => {
                                             </tr>
                                         </thead>
                                         <tbody>
+                                            
                                             {
                                                 cartItem.map(item => (
                                                     <Tr item={item} key={item.id} />
